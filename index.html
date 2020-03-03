@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="question"> </div>
+    <script type="text/javascript">
+    var currentQuestion = 0;
+    var questions = [
+        {
+        question: "what is this?",
+        answers: ["a thing", "an apple", "an elephant"],
+        answer:2},
+        {
+        question: "2what is this?",
+        answers: ["a thing", "an apple", "an elephant"],
+        answer:0},
+        {
+        question: "3what is this?",
+        answers: ["a thing", "an apple", "an elephant"],
+        answer:1}
+    ]
+    function generateQuestion(questionNumber){
+
+   
+//generate question elements
+    var questionsContainer = document.getElementById("question");
+   var questionElement = document.createElement("div");
+   var cardHeader = document.createElement("div");
+//generate question
+   cardHeader.className = "card-header";
+   cardHeader.textContent = questions[questionNumber].questions;
+   questionElement.appendChild(cardHeader);
+   questionElement.className = "card";
+//generate answeres
+var answers = document.createElement("div");
+answers.className = "card-body";
+//attach click event
+answers.addEventListener("click", function(){
+    console.log("clicked");
+})
+//attach event listener
+
+//generate btn for answers
+questions[questionNumber].answers.forEach(answer =>{
+    var answerBtn = document.createElement("button");
+    answerBtn.className = "btn btn-primary";
+    answerBtn.setAttribute("data-answer-index", answer);
+    answerBtn.textContent = answer;
+    answers.appendChild(answerBtn);
+})
+//append to container 
+   questionsContainer.appendChild(questionElement),
+   questionsContainer.appendChild(answers)
+
+questions.forEach(function(question,questionIndex){
+})
+}
+generateQuestion(currentQuestion);
+
+    </script>
+
+</body>
+</html>
+
