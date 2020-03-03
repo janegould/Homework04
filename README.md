@@ -1,4 +1,6 @@
 # Homework04
+I haven't gotten much further than the two sessions. Sorry :(
+
 
 // create html from questions
 //create a timer 
